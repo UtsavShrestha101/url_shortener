@@ -18,7 +18,10 @@ class HomeCubit extends Cubit<HomeState> {
 
   Future<void> search(String url) async {
     emit(
-      state.copyWith(status: ApiRequestStates.loading),
+      state.copyWith(
+        status: ApiRequestStates.loading,
+        generatedUrl: "",
+      ),
     );
     try {
       request() => restApiService.generateLink({"destination": url});
